@@ -1,0 +1,15 @@
+﻿Jarosław Kwolek, Mateusz  Moroszczuk, Anna Parzonka
+
+
+Obiekt badań 
+Porównanie co jest bardziej wydajne: wyciąg czy polinka. 
+Krótki opis:
+Wyciąg jeździ w kółko bez zatrzymywania się, natomiast polinka musi zatrzymać się, aby pasażerowie mogli wsiąść/ wysiąść. Wyciąg i polinka transportują ludzi z puntu A do B (taka sama odległość)
+Parametry:
+* Czas przejazdu - deterministyczny
+* Czas zatrzymania - deterministyczny
+* Pojemność - deterministyczny (15 osób)
+* Szybkość przemieszczania się wyciągu (Ilość wagonów) - deterministyczny (np 1 na 5 sekund)
+* Ilość osób chcących użyć wyciągu/polinki - probabilistyczny
+* częstość przychodzących ludzi
+Wskaźnik oceniający działanie symulacji to średni czas przejazdu + czas oczekiwania
