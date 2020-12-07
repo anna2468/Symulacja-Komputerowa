@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
-
-
 class cableway():
     def __init__(self, capacity, ride_time):
         
@@ -87,8 +84,6 @@ def queue():
         return len(self.queue)
     
 
-
-# In[ ]:
 
 
 
