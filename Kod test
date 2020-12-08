@@ -1,0 +1,29 @@
+polinka = cableway(3, 2)
+kolejka = queue()
+p1 = passenger(0, 0)
+p2 = passenger(0, 0)
+p3 = passenger(0, 0)
+p4 = passenger(0, 0)
+
+kolejka.add_passenger(p1)
+kolejka.add_passenger(p2)
+kolejka.add_passenger(p3)
+kolejka.add_passenger(p4)
+
+
+kolejka.info()
+
+p1 = kolejka.pop()
+p2 = kolejka.pop()
+p3 = kolejka.pop()
+p4 = kolejka.pop()
+
+polinka.add_passenger(p1)
+polinka.add_passenger(p2)
+polinka.add_passenger(p3)
+
+polinka.get_all_times()
+polinka.ride()
+
+polinka.get_all_times()
+polinka.get_avg_time()
