@@ -2,11 +2,8 @@ from Klasyprojektu import cableway, ski_lift, passenger, queue, carriage
 import numpy as np
 
 def random_passengers():
-    num = np.random.normal()+5
-    if num<=0:
-        return 0
-    else:
-        return int(num)
+    num = np.random.randint(10)+1
+    return int(num)
 
 def simulation_cableway(new_passengers_list):
     cable = cableway(60, 10)
@@ -30,17 +27,22 @@ def simulation_ski_lift(new_passengers_list):
 
         q.add_time()
     return ski.get_people_out()
-
-y = []
-for i in range(1000):
-    y.append(random_passengers())
+    
 def avg_time(x):
     waiting_time=0
     for i in x:
         waiting_time+=i.waiting_time
     return waiting_time/len(x)
 
-x = simulation_cableway(y)
-print(avg_time(x))
-x = simulation_ski_lift(y)
-print(avg_time(x))
+
+
+queueList = []
+for i in range(1000):
+    queueList.append(random_passengers())
+    
+
+
+transportedPeople = simulation_cableway(queueList)
+print(avg_time(transportedPeople))
+transportedPeople = simulation_ski_lift(queueList)
+print(avg_time(transportedPeople))
