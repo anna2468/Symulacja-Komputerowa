@@ -45,17 +45,68 @@ class cableway():
         
 
 class ski_lift():
-    def __init__(self, frequency):
+    def __init__(self, capacity, ride_time, frequency=1):
         ''' 
-        frequency - jak często podjeżdża nowe krzesełko
+        frequency - jak często podjeżdża nowe krzesełko (2*ride_time%frequency==0)
             rodzaj - int()
         
         '''
         self.frequency = frequency
-        
-    def change_frequency(self, new_frequency):
-        self.frequency = new_frequency
-        
+        self.number_of_carriages = int(2*ride_time/frequency)
+        self.capacity = capacity
+        self.ride_time = ride_time
+        self.carriages = []
+        back = False
+        for i in range(self.number_of_carriages):
+            if i*frequency<self.ride_time:
+                self.carriages.append(carriage(self.capacity, self.ride_time, i*frequency,back))
+            else:
+                back=True
+                self.carriages.append(carriage(self.capacity, self.ride_time, (self.ride_time-((i*frequency)-self.ride_time)),back))
+    
+    def move_from_queue(self, que):
+        for i in self.carriages:
+            i.move_from_queue(que)
+    
+    def move(self):
+        for i in self.carriages:
+            i.move()
+
+    def get_people_out(self):
+        out = []
+        for i in self.carriages:
+            out+=i.people_out
+        return out
+class carriage():
+    def __init__(self, capacity, ride_time, time_traveled = 0, back = False):
+        self.capacity = capacity
+        self.ride_time = ride_time
+        self.time_traveled = time_traveled
+        self.people_in = []
+        self.back = back
+        self.people_out = []
+
+    def move_from_queue(self, que):
+        if self.time_traveled == 0:
+            if self.capacity<=que.get_length():
+                self.people_in = que.queue[:self.capacity]
+                que.queue = que.queue[self.capacity:]
+            else:
+                self.people_in = que.queue
+                que.queue = []
+
+    def move(self):
+        if self.back:
+            self.time_traveled-=1
+            if self.time_traveled==0:
+                self.back=False
+        else:
+            self.time_traveled+=1
+            if self.time_traveled==self.ride_time:
+                self.people_out += self.people_in
+                self.people_in = []
+                self.back=True
+
 class passenger():
     def __init__(self, waiting_time=0):
         
