@@ -3,39 +3,35 @@
 
 class cableway():
     def __init__(self, capacity, ride_time):
-        
         '''
         Capacity - pojemność polinki
-        rodzaj - int()
-            ride_time - czas przejazdu w jedną strone
-        rodzaj - int()
-        
+            rodzaj - int()
+        ride_time - czas przejazdu w jedną strone
+            rodzaj - int()
         '''
-        
         self.capacity = capacity
         self.ride_time = ride_time
+
         
     def add_passenger(self):
         if self.capacity == 0:
             return f'The cableway is full'
         self.capacity = self.capacity - 1
-        
+
     def change_ridetime(self, new_ride_time):
         self.ride_time = new_ride_time
-        
+
     def change_capacity(self, new_capacity):
         self.capacity = new_capacity
         
         
 class ski_lift():
     def __init__(self, frequency):
-        
         ''' 
         frequency - jak często podjeżdża nowe krzesełko
-        rodzaj - int()
+            rodzaj - int()
         
         '''
-        
         self.frequency = frequency
         
     def change_frequency(self, new_frequency):
@@ -46,10 +42,9 @@ class passenger():
         
         ''' 
         place_in_queue - miejsce w kolejce
-        rodzaj - int()
-        
+            rodzaj - int()
         waiting_time - czas oczekiwania w danym momencie
-        
+            rodzaj - int()
         '''
         
         self.place_in_queue = place_in_queue
@@ -66,7 +61,7 @@ class passenger():
     def add_time(self):
         self.waiting_time = self.waiting_time + 1
         
-def queue():
+class queue():
     def __init__(self, queue):
         self.queue = []
         
@@ -83,8 +78,3 @@ def queue():
     def get_length(self):
         return len(self.queue)
     
-
-
-
-
-
