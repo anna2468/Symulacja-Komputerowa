@@ -77,6 +77,7 @@ class ski_lift():
         for i in self.carriages:
             out+=i.people_out
         return out
+        
 class carriage():
     def __init__(self, capacity, ride_time, time_traveled = 0, back = False):
         self.capacity = capacity
