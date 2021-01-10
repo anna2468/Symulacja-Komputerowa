@@ -1,0 +1,36 @@
+# Dla kazdej opcji robimy 4x symulacje z rozną iloscia miejcs,czyli 15, 30, 45, 60 dla polinki i 1,2,3,4 dla wyciagu
+# 2 rodzaje losowania: wg rozkladu normalnego i wg r. rownomiernego
+# Jedyne co zmieniamy to rodzaj losowania i ilosc miejsc, to samo dla wyciagu i polinki
+# Finalnie musimy stworzyc 16 list po 50 wynikow
+def sim_cableway_uniform(iterations, capacity):
+    results = []
+    queue_lengths(random.uniform(0, 10, iterations))
+    for i in range(0, iterations - 1):
+        # Tutaj symulujemy wszystkie 50 opcji, czyli dla każdej symulacji bierzemy dlugosc kolejki
+        # z listy queue_lenghts
+        # Wynik symulacji to średni czas oczekiwania, dodajemy go do listy result
+        # (Opcjonalnie) mozna stworzyc klase result w ktorej oprocz średniego czasu oczekiwania
+        # bedziemy zapisywac ilosc osob w kolejce
+    return results
+
+def sim_cableway_normal(iterations, capacity):
+    ride_time = 5
+    transport = cableway(capacity, ride_time)
+    results = []
+    queue_lengths(random.normal(0, 10, iterations))
+
+    for i in range(0, iterations-1):
+        # Tutaj symulujemy wszystkie 50 opcji, czyli dla każdej opcji bierzemy dlugosc kolejki
+        # z listy queue_lenghts
+        # Wynik symulacji to średni czas oczekiwania, dodajemy go do listy result
+        # (Opcjonalnie mozna stworzyc klase result w ktorej oprocz średniego czasu oczekiwania
+        # bedziemy zapisywac ilosc osob w kolejce
+    return results
+
+def sim_railway_normal(iterations, capacity):
+    results = []
+    return results
+
+def sim_railway_uniform(iterations, capacity):
+    results = []
+    return results
